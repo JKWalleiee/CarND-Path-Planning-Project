@@ -57,9 +57,57 @@ include CMakeFiles/path_planning.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/path_planning.dir/flags.make
 
+CMakeFiles/path_planning.dir/src/cost_function.cpp.o: CMakeFiles/path_planning.dir/flags.make
+CMakeFiles/path_planning.dir/src/cost_function.cpp.o: ../src/cost_function.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/CarND-Path-Planning-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/path_planning.dir/src/cost_function.cpp.o"
+	/opt/conda/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/cost_function.cpp.o -c /home/workspace/CarND-Path-Planning-Project/src/cost_function.cpp
+
+CMakeFiles/path_planning.dir/src/cost_function.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planning.dir/src/cost_function.cpp.i"
+	/opt/conda/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workspace/CarND-Path-Planning-Project/src/cost_function.cpp > CMakeFiles/path_planning.dir/src/cost_function.cpp.i
+
+CMakeFiles/path_planning.dir/src/cost_function.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planning.dir/src/cost_function.cpp.s"
+	/opt/conda/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/CarND-Path-Planning-Project/src/cost_function.cpp -o CMakeFiles/path_planning.dir/src/cost_function.cpp.s
+
+CMakeFiles/path_planning.dir/src/cost_function.cpp.o.requires:
+
+.PHONY : CMakeFiles/path_planning.dir/src/cost_function.cpp.o.requires
+
+CMakeFiles/path_planning.dir/src/cost_function.cpp.o.provides: CMakeFiles/path_planning.dir/src/cost_function.cpp.o.requires
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/cost_function.cpp.o.provides.build
+.PHONY : CMakeFiles/path_planning.dir/src/cost_function.cpp.o.provides
+
+CMakeFiles/path_planning.dir/src/cost_function.cpp.o.provides.build: CMakeFiles/path_planning.dir/src/cost_function.cpp.o
+
+
+CMakeFiles/path_planning.dir/src/vehicle.cpp.o: CMakeFiles/path_planning.dir/flags.make
+CMakeFiles/path_planning.dir/src/vehicle.cpp.o: ../src/vehicle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/CarND-Path-Planning-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/path_planning.dir/src/vehicle.cpp.o"
+	/opt/conda/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/vehicle.cpp.o -c /home/workspace/CarND-Path-Planning-Project/src/vehicle.cpp
+
+CMakeFiles/path_planning.dir/src/vehicle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planning.dir/src/vehicle.cpp.i"
+	/opt/conda/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/workspace/CarND-Path-Planning-Project/src/vehicle.cpp > CMakeFiles/path_planning.dir/src/vehicle.cpp.i
+
+CMakeFiles/path_planning.dir/src/vehicle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planning.dir/src/vehicle.cpp.s"
+	/opt/conda/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/workspace/CarND-Path-Planning-Project/src/vehicle.cpp -o CMakeFiles/path_planning.dir/src/vehicle.cpp.s
+
+CMakeFiles/path_planning.dir/src/vehicle.cpp.o.requires:
+
+.PHONY : CMakeFiles/path_planning.dir/src/vehicle.cpp.o.requires
+
+CMakeFiles/path_planning.dir/src/vehicle.cpp.o.provides: CMakeFiles/path_planning.dir/src/vehicle.cpp.o.requires
+	$(MAKE) -f CMakeFiles/path_planning.dir/build.make CMakeFiles/path_planning.dir/src/vehicle.cpp.o.provides.build
+.PHONY : CMakeFiles/path_planning.dir/src/vehicle.cpp.o.provides
+
+CMakeFiles/path_planning.dir/src/vehicle.cpp.o.provides.build: CMakeFiles/path_planning.dir/src/vehicle.cpp.o
+
+
 CMakeFiles/path_planning.dir/src/main.cpp.o: CMakeFiles/path_planning.dir/flags.make
 CMakeFiles/path_planning.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/CarND-Path-Planning-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/path_planning.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/workspace/CarND-Path-Planning-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/path_planning.dir/src/main.cpp.o"
 	/opt/conda/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planning.dir/src/main.cpp.o -c /home/workspace/CarND-Path-Planning-Project/src/main.cpp
 
 CMakeFiles/path_planning.dir/src/main.cpp.i: cmake_force
@@ -83,15 +131,19 @@ CMakeFiles/path_planning.dir/src/main.cpp.o.provides.build: CMakeFiles/path_plan
 
 # Object files for target path_planning
 path_planning_OBJECTS = \
+"CMakeFiles/path_planning.dir/src/cost_function.cpp.o" \
+"CMakeFiles/path_planning.dir/src/vehicle.cpp.o" \
 "CMakeFiles/path_planning.dir/src/main.cpp.o"
 
 # External object files for target path_planning
 path_planning_EXTERNAL_OBJECTS =
 
+path_planning: CMakeFiles/path_planning.dir/src/cost_function.cpp.o
+path_planning: CMakeFiles/path_planning.dir/src/vehicle.cpp.o
 path_planning: CMakeFiles/path_planning.dir/src/main.cpp.o
 path_planning: CMakeFiles/path_planning.dir/build.make
 path_planning: CMakeFiles/path_planning.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/workspace/CarND-Path-Planning-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable path_planning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/workspace/CarND-Path-Planning-Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable path_planning"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/path_planning.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -99,6 +151,8 @@ CMakeFiles/path_planning.dir/build: path_planning
 
 .PHONY : CMakeFiles/path_planning.dir/build
 
+CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/cost_function.cpp.o.requires
+CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/vehicle.cpp.o.requires
 CMakeFiles/path_planning.dir/requires: CMakeFiles/path_planning.dir/src/main.cpp.o.requires
 
 .PHONY : CMakeFiles/path_planning.dir/requires
