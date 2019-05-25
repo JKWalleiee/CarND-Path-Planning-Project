@@ -129,7 +129,6 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
   {
     case KL: 
     {
-      //same lane
       trajectory.lane_start = ref_lane;
       trajectory.lane_end = ref_lane;
       update.lane = ref_lane;
@@ -137,7 +136,6 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
     }
     case PLCL:
     {
-      //same lane
       trajectory.lane_start = ref_lane;
       trajectory.lane_end = ref_lane - 1;
       update.lane = ref_lane;
@@ -145,7 +143,6 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
     }
     case LCL:
     {
-      //same lane
       trajectory.lane_start = ref_lane;
       trajectory.lane_end = ref_lane - 1;
       update.lane = ref_lane - 1;
@@ -153,7 +150,6 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
     }    
     case PLCR:
     {
-      //same lane
       trajectory.lane_start = ref_lane;
       trajectory.lane_end = ref_lane + 1;
       update.lane = ref_lane;
@@ -161,7 +157,6 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
     }
     case LCR:
     {
-      //same lane
       trajectory.lane_start = ref_lane;
       trajectory.lane_end = ref_lane + 1;
       update.lane = ref_lane + 1;
@@ -199,6 +194,7 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
     update.lane = 2;
   }
 
+  //Safety variables
   double safety_speed_in_front = 0;
   double safety_distance_in_front = 10000;
   double safety_speed_lane_front = 0;
@@ -209,9 +205,9 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
   //compute collision on start and end lane
   for(int i=0; i < sensor_fusion.size(); i++)
   {
-    //car is in my lane
+    //car is in in the same lane (start lane)
     float car_d = sensor_fusion[i][6];
-    //Safety check for speed of car in front
+    //Safety check for speed of car in the same lane
     if( (car_d < (2+4*(trajectory.lane_start)+2) ) 
         && (car_d > (2+4*(trajectory.lane_start)-2) ) )
     {
@@ -221,7 +217,8 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
       double check_car_s = sensor_fusion[i][5];
       
       check_car_s += ((double) delta_time*check_speed);
-      //check s values greater than mine and s gap
+      
+      //check s values greater than the ego vehicle and s gap
       double dist_to_collision = (check_car_s - s); 
 
       if( (check_car_s >= s) && (dist_to_collision < 30) )
@@ -234,7 +231,7 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
       }
     }
 
-    //check for car in the current lane
+    //check for car in the goal lane (end lane)
     if( (car_d < (2+4*(trajectory.lane_end)+2) )
         && (car_d>(2+4*(trajectory.lane_end)-2) ) )
     {
@@ -244,7 +241,8 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
       double check_car_s = sensor_fusion[i][5];
       
       check_car_s += ((double) delta_time*check_speed);
-      //check s values greater than mine and s gap
+      
+      //check s values greater than the ego vehicle and s gap
       double dist_to_collision = (check_car_s - s);
 
       if( ( trajectory.lane_end!=trajectory.lane_start && abs(dist_to_collision) < 30 )
@@ -259,7 +257,7 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
 
           if(abs(dist_to_collision) > 30)
           {
-            //change targe speed
+            //change target speed
             if(check_car_s >= s)
             {
               //car in front
@@ -272,7 +270,7 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
             } 
             else 
             {
-              //car in back
+              //car is behind
               update.target_vel = check_speed*MS_TO_MPH+2;
               if(safety_distance_lane_back < dist_to_collision)
               {
@@ -294,7 +292,7 @@ void Vehicle::realize_state(States n_state, vector<vector<double>> sensor_fusion
 
   //Safety Speed check
   if(n_state==PLCL || n_state==PLCR){
-    //safety speed adjust
+    //safety speed update
     if( (safety_speed_lane_back!= 0) && (update.target_vel < safety_speed_lane_back) )
     {
       update.target_vel = safety_speed_lane_back;
